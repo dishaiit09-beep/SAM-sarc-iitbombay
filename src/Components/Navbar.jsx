@@ -5,9 +5,11 @@ const links = [
   { name: "Home", href: "#home" },
   { name: "About SAM", href: "#about" },
   { name: "Events", href: "#events" },
-  { name: "Past Insights", href: "#insights" },
+  { name: "Testimonials", href: "#insights" },
   { name: "Gallery", href: "#gallery" },
-  { name: "Register", href: "#register" },
+  { name: "Register/Login", href: "#register" },
+  { name: "Contact Us", href: "#contact" },
+  { name: "About alumni", href: "#alumni" },
 ];
 
 export default function Navbar() {
