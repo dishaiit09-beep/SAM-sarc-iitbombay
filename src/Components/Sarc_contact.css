@@ -165,3 +165,11 @@
     height: 155px;
   }
 }
+.single-member-grid {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.sarc-contact {
+  scroll-margin-top: 120px;
+}

@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const links = [
-  { name: "Home", href: "#home" },
-  { name: "Events", href: "#events" },
-  { name: "Testimonials", href: "#insights" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Register/Login", href: "#register" },
-  { name: "Contact Us", href: "#contact" },
-  { name: "About alumni", href: "#alumni" },
+  { name: "Home", path: "/" },
+  { name: "Events", path: "/events" },
+  { name: "Testimonials", path: "/testimonials" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Register/Login", path: "/register" },
+  { name: "Contact Us", path: "/contact" },
+  { name: "About alumni", path: "/alumni" },
 ];
 
 export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-pill">
-        <a className="nav-logo" href="#home">
+        <Link className="nav-logo" to="/">
           <span className="logo-mark">SAM</span>
           <span className="logo-text">SARC IITB</span>
-        </a>
+        </Link>
 
         <ul className="nav-links">
           {links.map((link) => (
             <li key={link.name}>
-              <a className="nav-link" href={link.href}>
+              <Link className="nav-link" to={link.path}>
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
