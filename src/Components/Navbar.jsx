@@ -1,37 +1,34 @@
-import React from 'react'
-import './Navbar.css'
-import logo from '../assets/dexplorelogo.png'
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Navbar.css";
 
 const links = [
-  { name: 'Home', href: '/', isReal: true },
-  { name: 'Species', href: '/species', isReal: true },
-  { name: 'Scenes', href: '/scenes', isReal: false },
-  { name: 'Map', href: '/map', isReal: false },
-  { name: 'Social', href: '/social', isReal: false },
-  { name: 'Profile', href: '/profile', isReal: true },
-]
+  { name: "Home", href: "#home" },
+  { name: "About SAM", href: "#about" },
+  { name: "Events", href: "#events" },
+  { name: "Past Insights", href: "#insights" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Register", href: "#register" },
+];
 
 export default function Navbar() {
   return (
-    <nav className='navbar'>
-       <div className='nav-pill'>
-        <Link className='nav-logo' to="/">
-          <img src={logo} alt="Dexplore Logo" className='nav-logopng' />
-          <span className='logo-text'>Dexplore</span>
-        </Link>
+    <nav className="navbar">
+      <div className="nav-pill">
+        <a className="nav-logo" href="#home">
+          <span className="logo-mark">SAM</span>
+          <span className="logo-text">SARC IITB</span>
+        </a>
 
-        <ul className='nav-links'>
-          {links.map(link => (
-            <li key={link.name} >
-              <Link to={link.href} className={`nav-link ${link.isReal ? '' : 'is-ghost'}`}>
+        <ul className="nav-links">
+          {links.map((link) => (
+            <li key={link.name}>
+              <a className="nav-link" href={link.href}>
                 {link.name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
-       </div>
+      </div>
     </nav>
-  )
+  );
 }
-

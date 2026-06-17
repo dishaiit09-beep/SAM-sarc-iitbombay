@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="app">
+      <Navbar />
+
+      <section id="home" className="hero-section">
+        <p className="eyebrow">SARC IIT Bombay presents</p>
+        <h1>SAM 2026</h1>
+        <h2>Student Alumni Meet</h2>
+        <p className="hero-text">
+          Where IITB’s legacy meets its future.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </section>
     </div>
   );
 }
