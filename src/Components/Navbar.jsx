@@ -3,7 +3,6 @@ import "./Navbar.css";
 
 const links = [
   { name: "Home", href: "#home" },
-  { name: "About SAM", href: "#about" },
   { name: "Events", href: "#events" },
   { name: "Testimonials", href: "#insights" },
   { name: "Gallery", href: "#gallery" },
