@@ -62,3 +62,16 @@
   font-size: 64px;
   margin: 0;
 }
+.coming-soon-page {
+  min-height: 100vh;
+  padding: 170px 24px 80px;
+  background: #2f304b;
+  color: white;
+  text-align: center;
+}
+
+.coming-soon-page h1 {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(54px, 8vw, 110px);
+  margin: 0;
+}

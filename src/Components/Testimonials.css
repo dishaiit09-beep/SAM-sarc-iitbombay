@@ -1,0 +1,311 @@
+.testimonials-page {
+  min-height: 100vh;
+  padding: 150px 7vw 90px;
+  color: white;
+  font-family: "Inter", Arial, sans-serif;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(58, 190, 249, 0.25), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(167, 230, 255, 0.18), transparent 26%),
+    linear-gradient(180deg, #2f304b 0%, #050c9b 52%, #2f304b 100%);
+}
+
+.testimonials-hero {
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto 85px;
+}
+
+.testimonials-kicker {
+  margin: 0 0 18px;
+  color: #a7e6ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.testimonials-hero h1 {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(68px, 11vw, 150px);
+  line-height: 0.9;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  text-shadow:
+    5px 5px 0 #050c9b,
+    10px 10px 0 rgba(58, 190, 249, 0.3);
+}
+
+.testimonials-hero p {
+  max-width: 760px;
+  margin: 26px auto 0;
+  font-size: 21px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* SCRAPBOOK WALL */
+
+.scrapbook-wall {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 34px;
+  align-items: start;
+  position: relative;
+}
+
+.scrapbook-wall::before {
+  content: "";
+  position: absolute;
+  inset: -35px;
+  border-radius: 42px;
+  background:
+    linear-gradient(rgba(167, 230, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167, 230, 255, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+
+.memory-card {
+  position: relative;
+  grid-column: span 3;
+  min-height: 430px;
+  padding: 34px;
+  border-radius: 28px;
+  color: #101426;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(226, 247, 255, 0.94));
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.32),
+    inset 0 0 0 1.5px rgba(5, 12, 155, 0.08);
+  transform-origin: center;
+  transition: 0.32s ease;
+  overflow: hidden;
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1.5px dashed rgba(5, 12, 155, 0.18);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.memory-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -70px;
+  bottom: -70px;
+  border-radius: 50%;
+  background: rgba(58, 190, 249, 0.18);
+}
+
+.memory-card:hover {
+  transform: translateY(-14px) rotate(0deg) scale(1.018);
+  box-shadow:
+    0 35px 85px rgba(0, 0, 0, 0.42),
+    0 0 45px rgba(58, 190, 249, 0.28);
+}
+
+.memory-1 {
+  transform: rotate(-1.8deg);
+}
+
+.memory-2 {
+  transform: rotate(1.4deg);
+  margin-top: 38px;
+}
+
+.memory-3 {
+  transform: rotate(1.1deg);
+}
+
+.memory-4 {
+  transform: rotate(-1.3deg);
+  margin-top: 42px;
+}
+
+.memory-5 {
+  grid-column: 2 / span 4;
+  transform: rotate(0.7deg);
+  margin-top: 20px;
+}
+
+/* TAPE EFFECT */
+
+.paper-tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 132px;
+  height: 34px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(167, 230, 255, 0.75);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  z-index: 4;
+}
+
+.paper-tape::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.24) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.24) 25%, transparent 25%);
+  background-size: 12px 12px;
+}
+
+/* CARD CONTENT */
+
+.stamp-row {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.stamp-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #050c9b;
+  color: #050c9b;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quote-symbol {
+  position: relative;
+  z-index: 3;
+  font-family: "Anton", sans-serif;
+  font-size: 82px;
+  line-height: 0.7;
+  color: #3572ef;
+  margin-bottom: 10px;
+}
+
+.memory-text {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.82;
+  color: rgba(16, 20, 38, 0.84);
+}
+
+.memory-footer {
+  position: relative;
+  z-index: 3;
+  margin-top: 26px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.memory-footer h3 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 900;
+  color: #050c9b;
+}
+
+.memory-footer p {
+  margin: 6px 0 0;
+  color: #3572ef;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pin-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, #ffffff, #3abef9 40%, #050c9b 100%);
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(58, 190, 249, 0.5);
+  flex-shrink: 0;
+}
+
+/* END NOTE */
+
+.testimonial-end-note {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.testimonial-end-note p {
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  line-height: 1.65;
+  font-weight: 800;
+  color: #a7e6ff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .scrapbook-wall {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-card,
+  .memory-5 {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .memory-1,
+  .memory-2,
+  .memory-3,
+  .memory-4,
+  .memory-5 {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .testimonials-page {
+    padding: 125px 24px 70px;
+  }
+
+  .testimonials-hero h1 {
+    font-size: 64px;
+  }
+
+  .testimonials-hero p {
+    font-size: 18px;
+  }
+
+  .memory-card {
+    padding: 28px 24px;
+    min-height: auto;
+  }
+
+  .memory-text {
+    font-size: 15.5px;
+  }
+
+  .memory-footer h3 {
+    font-size: 22px;
+  }
+}

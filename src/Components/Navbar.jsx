@@ -10,6 +10,7 @@ const links = [
   { name: "Register/Login", path: "/register" },
   { name: "Contact Us", path: "/contact" },
   { name: "About alumni", path: "/alumni" },
+  
 ];
 
 export default function Navbar() {
