@@ -6,6 +6,7 @@ import Testimonials from "./Components/Testimonials";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import SarcContact from "./Components/Sarc_contact";
+import Events from "./Components/Events";
 
 function ComingSoon({ title }) {
   return (
@@ -24,9 +25,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/events" element={<ComingSoon title="Events" />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/gallery" element={<ComingSoon title="Gallery" />} />
           <Route path="/register" element={<ComingSoon title="Register/Login" />} />
           <Route path="/contact" element={<SarcContact />} />
           <Route path="/alumni" element={<ComingSoon title="About Alumni" />} />

@@ -6,7 +6,6 @@ const links = [
   { name: "Home", path: "/" },
   { name: "Events", path: "/events" },
   { name: "Testimonials", path: "/testimonials" },
-  { name: "Gallery", path: "/gallery" },
   { name: "Register/Login", path: "/register" },
   { name: "Contact Us", path: "/contact" },
   { name: "About alumni", path: "/alumni" },
