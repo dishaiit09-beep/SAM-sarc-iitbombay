@@ -6,10 +6,10 @@ import "./CityGlobe.css";
 
 const cityPositions = {
   Mumbai: [-1.55, -0.42, 0.95],
-  Pune: [-0.75, -1.25, 0.95],
-  Jaipur: [1.25, 0.58, 0.98],
+  Pune: [-0.75, -0.8, 0.95],
+  Jaipur: [-0.5, 1, 0.98],
   Delhi: [-0.25, 1.45, 0.82],
-  Indore: [1.45, -0.55, 0.9],
+  Indore: [-0.55, 0.55, 0.9],
 };
 
 function ConnectionLine({ to }) {
