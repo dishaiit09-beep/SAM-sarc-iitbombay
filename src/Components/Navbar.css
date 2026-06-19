@@ -95,3 +95,86 @@
     padding: 8px 10px;
   }
 }
+
+/* ── Auth slot ──────────────────────────────────────────────── */
+.nav-auth { margin-left: auto; display: flex; align-items: center; flex-shrink: 0; }
+
+.nav-register-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1.5px solid #d4af37;
+  color: #d4af37;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.nav-register-btn:hover {
+  background: rgba(212,175,55,0.12);
+  box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
+  color: #f0c040;
+}
+
+.nav-user { display: flex; align-items: center; gap: 6px; }
+
+.nav-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 8px;
+  background: rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.3);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-user-chip:hover { background: rgba(212,175,55,0.15); }
+
+.nav-role-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: #d4af37;
+}
+.nav-role-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.nav-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.nav-username {
+  color: #d4af37;
+  font-size: 13px;
+  font-weight: 700;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-logout {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(212,175,55,0.25);
+  background: rgba(212,175,55,0.06);
+  color: rgba(212,175,55,0.6);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.nav-logout:hover { background: rgba(212,175,55,0.15); border-color: #d4af37; color: #f0c040; }

@@ -161,6 +161,24 @@
   transform: translateY(-4px);
 }
 
+.register-city-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.register-feedback {
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}
+
 .hero-visual {
   display: flex;
   align-items: center;

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import CityGlobe from "./CityGlobe";
+import { fetchCityEvents, registerForEvent, getUser, getToken } from "../api";
 
 const cities = [
   {
@@ -64,16 +66,51 @@ const structure = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState(cities[0]);
+  const [cityEvents, setCityEvents]     = useState([]);    // backend event objects
+  const [regStatus, setRegStatus]       = useState({});    // { cityName: 'loading'|'done'|'error'|msg }
+
+  // Fetch live events from backend on mount
+  useEffect(() => {
+    fetchCityEvents()
+      .then(data => setCityEvents(data))
+      .catch(() => {});
+  }, []);
+
+  async function handleRegisterCity() {
+    if (!getToken() || !getUser()) {
+      navigate('/register');
+      return;
+    }
+
+    // Match selected city name to backend event id
+    const event = cityEvents.find(
+      e => e.city.toLowerCase() === selectedCity.city.toLowerCase()
+    );
+    if (!event) {
+      setRegStatus(s => ({ ...s, [selectedCity.city]: 'City event not found in backend.' }));
+      return;
+    }
+
+    setRegStatus(s => ({ ...s, [selectedCity.city]: 'loading' }));
+    try {
+      await registerForEvent(event.id);
+      const user = getUser();
+      const msg  = user?.role === 'alumni'
+        ? `✅ Registered as Volunteer for ${selectedCity.city}!`
+        : `✅ Registered as Attendee for ${selectedCity.city}!`;
+      setRegStatus(s => ({ ...s, [selectedCity.city]: msg }));
+    } catch (err) {
+      const msg = err?.detail || err?.error || 'Registration failed. Try again.';
+      setRegStatus(s => ({ ...s, [selectedCity.city]: `❌ ${msg}` }));
+    }
+  }
 
   const handleCitySelect = (city) => {
     setSelectedCity(city);
-
     setTimeout(() => {
-      document.getElementById("city-chapters")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      document.getElementById("city-chapters")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   };
 
@@ -239,9 +276,26 @@ export default function Home() {
               <p>{selectedCity.time}</p>
             </div>
 
-            <button className="register-city-btn">
-              Register for {selectedCity.city}
+            {/* Feedback message */}
+            {regStatus[selectedCity.city] && regStatus[selectedCity.city] !== 'loading' && (
+              <p className="register-feedback">{regStatus[selectedCity.city]}</p>
+            )}
+
+            <button
+              className="register-city-btn"
+              onClick={handleRegisterCity}
+              disabled={regStatus[selectedCity.city] === 'loading'}
+            >
+              {regStatus[selectedCity.city] === 'loading'
+                ? 'Registering…'
+                : !getToken()
+                  ? `Login to Register for ${selectedCity.city}`
+                  : getUser()?.role === 'alumni'
+                    ? `Volunteer for ${selectedCity.city}`
+                    : `Register for ${selectedCity.city}`
+              }
             </button>
+
           </div>
         </div>
       </section>
