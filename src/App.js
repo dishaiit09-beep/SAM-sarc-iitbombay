@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Testimonials from "./Components/Testimonials";
-
+import AboutAlumni from "./Components/Alumni_contact";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import SarcContact from "./Components/Sarc_contact";
@@ -29,7 +29,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/register" element={<ComingSoon title="Register/Login" />} />
           <Route path="/contact" element={<SarcContact />} />
-          <Route path="/alumni" element={<ComingSoon title="About Alumni" />} />
+          <Route path="/alumni" element={<AboutAlumni />} />
           
         </Routes>
       </div>
