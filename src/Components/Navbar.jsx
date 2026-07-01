@@ -49,6 +49,12 @@ const navLinks = [
 
 export default function Navbar() {
   const [user, setUser] = useState(getUser);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close menu when a link is clicked
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   // Re-read user from storage when tab regains focus or auth state changes
   useEffect(() => {
@@ -65,38 +71,52 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="nav-pill">
-        <Link className="nav-logo" to="/">
-          <span className="logo-mark">SAM</span>
-          <span className="logo-text">SARC IITB</span>
-        </Link>
+      <div className={`nav-pill ${isOpen ? "is-open" : ""}`}>
+        <div className="nav-header">
+          <Link className="nav-logo" to="/" onClick={handleLinkClick}>
+            <span className="logo-mark">SAM</span>
+            <span className="logo-text">SARC IITB</span>
+          </Link>
+          
+          <button 
+            className={`nav-toggle-btn ${isOpen ? "active" : ""}`} 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Navigation"
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+        </div>
 
-        <ul className="nav-links">
-          {navLinks.map(link => (
-            <li key={link.name}>
-              <Link className="nav-link" to={link.path}>{link.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className={`nav-menu ${isOpen ? "show" : ""}`}>
+          <ul className="nav-links">
+            {navLinks.map(link => (
+              <li key={link.name}>
+                <Link className="nav-link" to={link.path} onClick={handleLinkClick}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Auth slot */}
-        <div className="nav-auth">
-          {user ? (
-            <div className="nav-user">
-              <Link to="/profile" className="nav-user-chip">
-                <span className="nav-role-icon">
-                  {user.avatar ? (
-                    <img src={user.avatar} alt="Avatar" className="nav-avatar-img" />
-                  ) : (
-                    ROLE_ICONS[user.role] || <UserIcon />
-                  )}
-                </span>
-                <span className="nav-username">{user.first_name || user.username}</span>
-              </Link>
-            </div>
-          ) : (
-            <Link to="/register" className="nav-register-btn">Register / Login</Link>
-          )}
+          {/* Auth slot */}
+          <div className="nav-auth">
+            {user ? (
+              <div className="nav-user">
+                <Link to="/profile" className="nav-user-chip" onClick={handleLinkClick}>
+                  <span className="nav-role-icon">
+                    {user.avatar ? (
+                      <img src={user.avatar} alt="Avatar" className="nav-avatar-img" />
+                    ) : (
+                      ROLE_ICONS[user.role] || <UserIcon />
+                    )}
+                  </span>
+                  <span className="nav-username">{user.first_name || user.username}</span>
+                </Link>
+              </div>
+            ) : (
+              <Link to="/register" className="nav-register-btn" onClick={handleLinkClick}>Register / Login</Link>
+            )}
+          </div>
         </div>
       </div>
     </nav>
